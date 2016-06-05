@@ -1,0 +1,30 @@
+{
+  "name": "node-cache-manager-hazelcast",
+  "version": "0.1.0",
+  "description": "Node Cache Manager for Hazelcast",
+  "main": "lib/index.js",
+  "scripts": {
+    "compile": "babel src --out-dir lib",
+    "prepublish": "npm run compile",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marudor/node-cache-manager-hazelcast.git"
+  },
+  "author": "marudor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marudor/node-cache-manager-hazelcast/issues"
+  },
+  "homepage": "https://github.com/marudor/node-cache-manager-hazelcast#readme",
+  "dependencies": {
+    "marudor-hazelcast-client": "^0.3.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.8.0",
+    "babel-plugin-transform-flow-strip-types": "^6.8.0",
+    "babel-preset-stage-1": "^6.5.0"
+  }
+}
