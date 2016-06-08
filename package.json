@@ -1,5 +1,5 @@
 {
-  "name": "node-cache-manager-hazelcast",
+  "name": "cache-manager-hazelcast",
   "version": "0.2.0",
   "description": "Node Cache Manager for Hazelcast",
   "main": "lib/index.js",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.8.0",
     "babel-plugin-transform-flow-strip-types": "^6.8.0",
     "babel-preset-stage-1": "^6.5.0"

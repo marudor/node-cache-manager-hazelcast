@@ -14,12 +14,14 @@ type storeConfig = {
   host?: string,
   port?: string,
   prefix?: string,
+  ttl?: number,
+  defaultMap?: string,
 };
 
-export default class HazelcastStore {
+class HazelcastStore {
   name: string = 'hazelcast';
   usePromises: bool = true;
-  defaultMap: string = 'CACHE';
+  defaultMap: string;
   client: Client;
   prefix: ?string;
   args: storeConfig;
@@ -28,6 +30,7 @@ export default class HazelcastStore {
     this.args = args;
     this.createClient(args);
     this.prefix = args.prefix;
+    this.defaultMap = args.defaultMap || 'CACHE';
   }
   createClient(args: storeConfig) {
     const cfg = new Config.ClientConfig();
@@ -58,6 +61,7 @@ export default class HazelcastStore {
     return this._tryCatchRestart(() => this.map(options.mapName).put(key, value, options.ttl));
   }
   set(key: string, value: mixed, options: HazelcastSetOptions = {}, cb: Function) {
+    options.ttl = options.ttl || this.args.ttl;
     this.setPromise(key, value, options)
     .then(val => cb(undefined, val))
     .catch(err => cb(err));
@@ -103,3 +107,7 @@ export default class HazelcastStore {
     .catch(err => cb(err));
   }
 }
+
+export default function(args: any) {
+  return new HazelcastStore(args);
+};
