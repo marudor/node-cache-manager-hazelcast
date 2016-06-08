@@ -1,6 +1,6 @@
 {
   "name": "cache-manager-hazelcast",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Node Cache Manager for Hazelcast",
   "main": "lib/index.js",
   "scripts": {

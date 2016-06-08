@@ -68,14 +68,13 @@ class HazelcastStore {
   }
   getPromise(key: string, options: HazelcastGetOptions = {}) {
     return this._tryCatchRestart(() => this.map(options.mapName).get(key)
-      .then(raw => {
-        try {
-          return JSON.parse((raw: any));
-        } catch (e) {
-          return raw;
-        }
-      })
-    );
+    .then(raw => {
+      try {
+        return JSON.parse((raw: any));
+      } catch (e) {
+        return raw;
+      }
+    }));
   }
   get(key: string, options: HazelcastGetOptions = {}, cb: Function) {
     this.getPromise(key, options)
@@ -108,6 +107,8 @@ class HazelcastStore {
   }
 }
 
-export default function(args: any) {
-  return new HazelcastStore(args);
+export default {
+  create(args: any) {
+    return new HazelcastStore(args);
+  }
 };
