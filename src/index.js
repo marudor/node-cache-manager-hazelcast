@@ -1,6 +1,6 @@
 // @flow
-import { Address, Config, Client } from 'marudor-hazelcast-client';
-import type { IMap } from 'marudor-hazelcast-client';
+import { Address, Config, Client } from 'hazelcast-client';
+import type { IMap } from 'hazelcast-client';
 
 export type HazelcastGetOptions = {
   mapName?: string,

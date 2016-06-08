@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/marudor/node-cache-manager-hazelcast#readme",
   "dependencies": {
-    "marudor-hazelcast-client": "^0.3.1"
+    "hazelcast-client": "^0.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
